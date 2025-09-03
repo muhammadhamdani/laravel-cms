@@ -1,5 +1,3 @@
-# laravel-cms
-Laravel CMS
 # 📰 Laravel CMS
 
 📦 **Laravel CMS** adalah Content Management System modern berbasis [Laravel](https://laravel.com/) yang fleksibel, ringan, dan mudah dikembangkan.  
