@@ -41,13 +41,13 @@ php artisan migrate --seed
 
 npm install && npm run dev
 
-🔐 Login Default (Seeder)
+## 🔐 Login Default (Seeder)
 Role	Email	Password
 Admin	admin@example.com
 	password
 User	user@example.com
 	password
-📂 Struktur Direktori
+## 📂 Struktur Direktori
 app/
 ├── Http/
 │   ├── Controllers/
