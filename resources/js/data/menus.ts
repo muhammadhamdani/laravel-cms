@@ -32,4 +32,35 @@ export const NavigationList = [
             },
         ],
     },
+    {
+        title: 'Content Management System',
+        roles: ['Administrators'],
+        children: [
+            {
+                title: 'Posts',
+                roles: ['Administrators'],
+                icon: CpuIcon,
+                children: [
+                    {
+                        title: 'Category',
+                        href: route('permissions.index'),
+                        permission: 'view-permission',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Posting',
+                        href: route('roles.index'),
+                        permission: 'view-role',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Tags',
+                        href: route('users.index'),
+                        permission: 'view-user',
+                        icon: ChevronRight,
+                    },
+                ],
+            },
+        ],
+    },
 ];
