@@ -1,4 +1,4 @@
-import { ChevronRight, CpuIcon } from 'lucide-react';
+import { ChevronRight, CpuIcon, Newspaper } from 'lucide-react';
 
 export const NavigationList = [
     {
@@ -33,13 +33,13 @@ export const NavigationList = [
         ],
     },
     {
-        title: 'Content Management System',
+        title: 'CMS',
         roles: ['Administrators'],
         children: [
             {
                 title: 'Posts',
                 roles: ['Administrators'],
-                icon: CpuIcon,
+                icon: Newspaper,
                 children: [
                     {
                         title: 'Category',
