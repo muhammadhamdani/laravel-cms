@@ -5,11 +5,11 @@ import { InfoIcon } from 'lucide-react';
 import moment from 'moment-timezone';
 
 export default function DetailPage() {
-    const { category } = usePage<any>().props;
+    const { tag } = usePage<any>().props;
 
     return (
         <AppLayout>
-            <Head title="Category Detail" />
+            <Head title="Tag Detail" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <Card className="min-h-full p-4 md:p-6">
                     <div className="flex items-center space-x-2">
@@ -19,21 +19,21 @@ export default function DetailPage() {
                     <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <li className="flex flex-col space-y-2">
                             <span className="text-sm font-semibold">Name</span>
-                            <span className="text-sm">{category.name}</span>
+                            <span className="text-sm">{tag.name}</span>
                         </li>
                         <li className="flex flex-col space-y-2">
                             <span className="text-sm font-semibold">Created At</span>
-                            <span className="text-sm">{moment(category.created_at).tz('Asia/Jakarta').format('DD MMMM YYYY')}</span>
+                            <span className="text-sm">{moment(tag.created_at).tz('Asia/Jakarta').format('DD MMMM YYYY')}</span>
                         </li>
                         <li className="flex flex-col space-y-2">
                             <span className="text-sm font-semibold">Updated At</span>
-                            <span className="text-sm">{moment(category.updated_at).tz('Asia/Jakarta').format('DD MMMM YYYY')}</span>
+                            <span className="text-sm">{moment(tag.updated_at).tz('Asia/Jakarta').format('DD MMMM YYYY')}</span>
                         </li>
                     </ul>
                     <ul>
                         <li className="flex flex-col space-y-2">
                             <span className="text-sm font-semibold">Description</span>
-                            <span>{category.description}</span>
+                            <span>{tag.description}</span>
                         </li>
                     </ul>
                 </Card>
