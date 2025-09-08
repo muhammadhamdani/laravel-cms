@@ -2,9 +2,9 @@ import { useForm, usePage } from '@inertiajs/react';
 import { EyeClosedIcon, EyeIcon, SaveIcon } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 import { toast } from 'sonner';
-import { ButtonComponent } from '../partials/button-component';
-import InputTextComponent from '../partials/input-components';
-import { SelectComponent } from '../partials/select-component';
+import { ButtonComponent } from '../../partials/button-component';
+import InputTextComponent from '../../partials/input-components';
+import { SelectComponent } from '../../partials/select-component';
 
 export const UserForm = ({ dataId }: { dataId?: number }) => {
     const { user, roles } = usePage<any>().props;

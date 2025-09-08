@@ -4,9 +4,12 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Opcodes\LogViewer\Facades\LogViewer;
+use App\Http\Controllers\Admin\Cms\TagController;
+use App\Http\Controllers\Admin\Cms\PostController;
 use App\Http\Controllers\Admin\Core\RoleController;
 use App\Http\Controllers\Admin\Core\UserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Cms\CategoryController;
 use App\Http\Controllers\Admin\Core\PermissionController;
 
 /*
@@ -37,6 +40,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('users/verify', [UserController::class, 'verify'])->name('users.verify');
         Route::get('users/data', [UserController::class, 'getData'])->name('users.data');
         Route::resource('users', UserController::class);
+    });
+
+    Route::prefix('cms')->group(function () {
+        Route::get('categories/data', [CategoryController::class, 'getData'])->name('categories.data');
+        Route::resource('categories', CategoryController::class);
+
+        Route::get('posts/data', [PostController::class, 'getData'])->name('posts.data');
+        Route::resource('posts', PostController::class);
+
+        Route::get('tags/data', [TagController::class, 'getData'])->name('tags.data');
+        Route::resource('tags', TagController::class);
     });
 });
 

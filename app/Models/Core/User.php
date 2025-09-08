@@ -3,6 +3,7 @@
 namespace App\Models\Core;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Cms\Post;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -64,5 +65,10 @@ class User extends Authenticatable
     public function socials(): HasMany
     {
         return $this->hasMany(Social::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

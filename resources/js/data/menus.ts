@@ -43,7 +43,7 @@ export const NavigationList = [
                 children: [
                     {
                         title: 'Category',
-                        href: route('permissions.index'),
+                        href: route('categories.index'),
                         permission: 'view-permission',
                         icon: ChevronRight,
                     },
@@ -55,7 +55,7 @@ export const NavigationList = [
                     },
                     {
                         title: 'Tags',
-                        href: route('users.index'),
+                        href: route('tags.index'),
                         permission: 'view-user',
                         icon: ChevronRight,
                     },

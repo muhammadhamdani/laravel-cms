@@ -2,8 +2,8 @@ import { useForm, usePage } from '@inertiajs/react';
 import { SaveIcon } from 'lucide-react';
 import { FormEvent } from 'react';
 import { toast } from 'sonner';
-import { ButtonComponent } from '../partials/button-component';
-import InputTextComponent from '../partials/input-components';
+import { ButtonComponent } from '../../partials/button-component';
+import InputTextComponent from '../../partials/input-components';
 
 export const RoleForm = ({ dataId }: { dataId?: number }) => {
     const { role, permissions } = usePage<any>().props;

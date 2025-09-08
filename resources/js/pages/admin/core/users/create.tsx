@@ -1,4 +1,4 @@
-import { UserForm } from '@/components/forms/user-form';
+import { UserForm } from '@/components/forms/core/user-form';
 import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
 

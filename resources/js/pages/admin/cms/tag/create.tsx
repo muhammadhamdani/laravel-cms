@@ -1,17 +1,15 @@
-import { RoleForm } from '@/components/forms/core/role-form';
+import { TagForm } from '@/components/forms/cms/tag-form';
 import AppLayout from '@/layouts/app-layout';
-import { Head, usePage } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 
-export default function Dashboard() {
-    const { role } = usePage<any>().props;
-
+export default function CreatePage() {
     return (
         <AppLayout>
-            <Head title="Role Edit" />
+            <Head title="Tag Create" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="border-sidebar-border/70 dark:border-sidebar-border relative min-h-[100vh] flex-1 flex-col space-y-8 overflow-hidden rounded-xl border py-4 md:min-h-min md:py-6">
                     <div className="px-4 md:px-6">
-                        <RoleForm dataId={role.id} />
+                        <TagForm />
                     </div>
                 </div>
             </div>

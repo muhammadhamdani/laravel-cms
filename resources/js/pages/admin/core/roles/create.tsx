@@ -1,4 +1,4 @@
-import { RoleForm } from '@/components/forms/role-form';
+import { RoleForm } from '@/components/forms/core/role-form';
 import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
 

@@ -41,6 +41,16 @@ class DatabaseSeeder extends Seeder
             ['name' => 'delete-user'],
             ['name' => 'data-user'],
             ['name' => 'verify-user'],
+            ['name' => 'view-category'],
+            ['name' => 'create-category'],
+            ['name' => 'update-category'],
+            ['name' => 'delete-category'],
+            ['name' => 'data-category'],
+            ['name' => 'view-tag'],
+            ['name' => 'create-tag'],
+            ['name' => 'update-tag'],
+            ['name' => 'delete-tag'],
+            ['name' => 'data-tag'],
         ])->each(fn($permission) => Permission::create($permission)->assignRole('Administrators'));
 
         // User::factory(1000)->create()->each(fn($user) => $user->assignRole('Users'));

@@ -106,3 +106,74 @@ Breadcrumbs::for(
     fn($trail) =>
     $trail->parent('roles.index')->push('Roles Access', route('roles.access'))
 );
+
+// Categories Index
+Breadcrumbs::for(
+    'categories.index',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('dashboard')->push('Categories', route('categories.index'))
+);
+
+// Categories Create
+Breadcrumbs::for(
+    'categories.create',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('categories.index')->push('Create', route('categories.create'))
+);
+
+// Categories Show
+Breadcrumbs::for(
+    'categories.show',
+    fn(BreadcrumbTrail $trail, $categories) =>
+    $trail->parent('categories.index')->push($categories->name, route('categories.show', $categories))
+);
+
+// Categories Edit
+Breadcrumbs::for(
+    'categories.edit',
+    fn(BreadcrumbTrail $trail, $categories) =>
+    $trail->parent('categories.show', $categories)->push('Edit', route('categories.edit', $categories))
+);
+
+// Categories Data
+Breadcrumbs::for(
+    'categories.data',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('categories.index')->push('categories Data', route('categories.data'))
+);
+
+
+// Tag Index
+Breadcrumbs::for(
+    'tags.index',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('dashboard')->push('Tag', route('tags.index'))
+);
+
+// Tag Create
+Breadcrumbs::for(
+    'tags.create',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('tags.index')->push('Create', route('tags.create'))
+);
+
+// Tag Show
+Breadcrumbs::for(
+    'tags.show',
+    fn(BreadcrumbTrail $trail, $tag) =>
+    $trail->parent('tags.index')->push($tag->name, route('tags.show', $tag))
+);
+
+// Tag Edit
+Breadcrumbs::for(
+    'tags.edit',
+    fn(BreadcrumbTrail $trail, $tag) =>
+    $trail->parent('tags.show', $tag)->push('Edit', route('tags.edit', $tag))
+);
+
+// Tag Data
+Breadcrumbs::for(
+    'tags.data',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('tags.index')->push('Tag Data', route('tags.data'))
+);
