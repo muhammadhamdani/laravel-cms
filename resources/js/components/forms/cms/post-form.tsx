@@ -11,7 +11,7 @@ import { SaveIcon } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 
 export const PostForm = ({ dataId }: { dataId?: number }) => {
-    const { post: artikel, categories } = usePage<any>().props;
+    const { post: artikel, categories, ziggy } = usePage<any>().props;
 
     const [files, setFiles] = useState<File[]>([]);
     const [tagInput, setTagInput] = useState('');
@@ -24,6 +24,7 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
         tag_name: artikel?.tags?.map((t: any) => t.name) || [],
         status: artikel?.status.toString() || null,
         image: null,
+        previewImage: artikel?.image || null,
         _method: dataId ? 'PUT' : 'POST',
     });
 
@@ -58,6 +59,8 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
             data.tag_name.filter((t: string) => t !== tagName),
         );
     };
+
+    console.log(`${ziggy.url}/storage/${data.previewImage}`);
 
     return (
         <form onSubmit={handleSubmit} encType="multipart/form-data" className="flex flex-col space-y-4">
@@ -167,6 +170,7 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
                             onDrop={(acceptedFiles: File[]) => {
                                 setFiles(acceptedFiles);
                                 setData('image', acceptedFiles[0]);
+                                setData('previewImage', URL.createObjectURL(acceptedFiles[0]));
                             }}
                             onError={console.error}
                         >
@@ -174,7 +178,9 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
                             <DropzoneContent />
                         </Dropzone>
 
-                        {files.length > 0 && <img src={URL.createObjectURL(files[0])} alt={files[0].name} className="w-full rounded object-cover" />}
+                        {data.previewImage && (
+                            <img src={`${ziggy.url}/storage/${data.previewImage}`} alt="Feature Image" className="w-full rounded object-cover" />
+                        )}
                     </div>
                 </div>
             </div>

@@ -13,10 +13,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Crm\StorePostRequest;
 use App\Http\Requests\Crm\UpdatePostRequest;
+use App\Traits\UploadFiles;
 
 class PostController extends Controller
 {
-    use LogActivity;
+    use LogActivity, UploadFiles;
 
     /**
      * Display a listing of the resource.
@@ -59,6 +60,10 @@ class PostController extends Controller
             'status' => 'PUBLISHED',
             'user_id' => Auth::user()->id
         ];
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $this->uploadFile(null, $request->file('image'), 'uploads/posts');
+        }
 
         $post = Post::create($data);
 
@@ -136,6 +141,12 @@ class PostController extends Controller
             'user_id' => Auth::user()->id
         ];
 
+        if ($request->hasFile('image')) {
+            $this->deleteFile($post->image);
+
+            $data['image'] = $this->uploadFile($post->image, $request->file('image'), 'uploads/posts');
+        }
+
         $post->update($data);
 
         $post->categories()->sync($request->category_id ?? []);
@@ -169,6 +180,10 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $this->authorize('delete', $post);
+
+        if ($post->image) {
+            $this->deleteFile($post->image);
+        }
 
         $post->delete();
 
