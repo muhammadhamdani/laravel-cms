@@ -8,14 +8,14 @@ import InputTextComponent from '../../partials/input-components';
 export const RoleForm = ({ dataId }: { dataId?: number }) => {
     const { role, permissions } = usePage<any>().props;
 
-    const { data, setData, post, put, processing, errors, reset, transform } = useForm({
+    const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
         name: role?.name || '',
         permissions: role?.permissions.map((permission: any) => permission.id) || [],
     });
 
     // transformData
-    transform((data) => ({
+    transform((data: any) => ({
         ...data,
     }));
 

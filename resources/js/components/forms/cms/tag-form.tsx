@@ -7,14 +7,14 @@ import { FormEvent } from 'react';
 export const TagForm = ({ dataId }: { dataId?: number }) => {
     const { tag, categories } = usePage<any>().props;
 
-    const { data, setData, post, put, processing, errors, reset, transform } = useForm({
+    const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
         name: tag?.name || '',
         description: tag?.description || '',
     });
 
     // transformData
-    transform((data) => ({
+    transform((data: any) => ({
         ...data,
     }));
 

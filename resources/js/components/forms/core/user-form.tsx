@@ -9,7 +9,7 @@ import { SelectComponent } from '../../partials/select-component';
 export const UserForm = ({ dataId }: { dataId?: number }) => {
     const { user, roles } = usePage<any>().props;
 
-    const { data, setData, post, put, processing, errors, reset, transform } = useForm({
+    const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
         name: user?.name || '',
         email: user?.email || '',
@@ -19,7 +19,7 @@ export const UserForm = ({ dataId }: { dataId?: number }) => {
     });
 
     // transformData
-    transform((data) => ({
+    transform((data: any) => ({
         ...data,
         role: roles?.filter((role: any) => role?.id === parseInt(data?.role))[0]?.name,
     }));

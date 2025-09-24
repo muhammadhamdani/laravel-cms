@@ -8,13 +8,13 @@ import InputTextComponent from '../../partials/input-components';
 export const PermissionForm = ({ dataId }: { dataId?: number }) => {
     const { permission } = usePage<any>().props;
 
-    const { data, setData, post, put, processing, errors, reset, transform } = useForm({
+    const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
         name: permission?.name || '',
     });
 
     // transformData
-    transform((data) => ({
+    transform((data: any) => ({
         ...data,
     }));
 

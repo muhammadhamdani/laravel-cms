@@ -23,12 +23,12 @@ class Post extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(CategoryPost::class);
+        return $this->belongsToMany(Category::class, 'category_posts');
     }
 
-    public function tags(): HasMany
+    public function tags(): BelongsToMany
     {
-        return $this->hasMany(TagPost::class, 'post_id');
+        return $this->belongsToMany(Tag::class, 'tag_posts');
     }
 
     public function user(): BelongsTo

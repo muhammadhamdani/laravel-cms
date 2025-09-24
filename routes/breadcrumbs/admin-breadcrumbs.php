@@ -142,7 +142,6 @@ Breadcrumbs::for(
     $trail->parent('categories.index')->push('categories Data', route('categories.data'))
 );
 
-
 // Tag Index
 Breadcrumbs::for(
     'tags.index',
@@ -176,4 +175,39 @@ Breadcrumbs::for(
     'tags.data',
     fn(BreadcrumbTrail $trail) =>
     $trail->parent('tags.index')->push('Tag Data', route('tags.data'))
+);
+
+// Post Index
+Breadcrumbs::for(
+    'posts.index',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('dashboard')->push('Post', route('posts.index'))
+);
+
+// Post Create
+Breadcrumbs::for(
+    'posts.create',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('posts.index')->push('Create', route('posts.create'))
+);
+
+// Post Show
+Breadcrumbs::for(
+    'posts.show',
+    fn(BreadcrumbTrail $trail, $post) =>
+    $trail->parent('posts.index')->push($post->title, route('posts.show', $post))
+);
+
+// Post Edit
+Breadcrumbs::for(
+    'posts.edit',
+    fn(BreadcrumbTrail $trail, $post) =>
+    $trail->parent('posts.show', $post)->push('Edit', route('posts.edit', $post))
+);
+
+// Post Data
+Breadcrumbs::for(
+    'posts.data',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('posts.index')->push('Post Data', route('posts.data'))
 );

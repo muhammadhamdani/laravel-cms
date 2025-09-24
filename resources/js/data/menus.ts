@@ -49,7 +49,7 @@ export const NavigationList = [
                     },
                     {
                         title: 'Posting',
-                        href: route('roles.index'),
+                        href: route('posts.index'),
                         permission: 'view-role',
                         icon: ChevronRight,
                     },

@@ -8,7 +8,7 @@ import { FormEvent } from 'react';
 export const CategoryForm = ({ dataId }: { dataId?: number }) => {
     const { category, categories } = usePage<any>().props;
 
-    const { data, setData, post, put, processing, errors, reset, transform } = useForm({
+    const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
         name: category?.name || '',
         description: category?.description || '',
@@ -16,7 +16,7 @@ export const CategoryForm = ({ dataId }: { dataId?: number }) => {
     });
 
     // transformData
-    transform((data) => ({
+    transform((data: any) => ({
         ...data,
     }));
 

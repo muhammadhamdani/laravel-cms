@@ -51,14 +51,22 @@ class DatabaseSeeder extends Seeder
             ['name' => 'update-tag'],
             ['name' => 'delete-tag'],
             ['name' => 'data-tag'],
+            ['name' => 'view-post'],
+            ['name' => 'create-post'],
+            ['name' => 'update-post'],
+            ['name' => 'delete-post'],
         ])->each(fn($permission) => Permission::create($permission)->assignRole('Administrators'));
-
-        // User::factory(1000)->create()->each(fn($user) => $user->assignRole('Users'));
 
         User::create([
             'name' => 'Administrator',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
+            'email' => 'muhammadhamdani017@gmail.com',
+            'password' => Hash::make(hexdec(uniqid())),
         ])->assignRole('Administrators');
+
+        User::factory(100)->create()->each(fn($user) => $user->assignRole('Users'));
+
+        $this->call([
+            CmsSeeder::class
+        ]);
     }
 }
