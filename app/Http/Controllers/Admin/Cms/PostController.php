@@ -56,7 +56,7 @@ class PostController extends Controller
             'title' => Str::title($request->title),
             'slug' => Str::slug($request->title),
             'excerpt' => $request->description,
-            'content' => $request->description,
+            'description' => $request->description,
             'status' => 'PUBLISHED',
             'user_id' => Auth::user()->id
         ];
@@ -136,7 +136,7 @@ class PostController extends Controller
             'title' => Str::title($request->title),
             'slug' => Str::slug($request->title),
             'excerpt' => $request->description,
-            'content' => $request->description,
+            'description' => $request->description,
             'status' => 'PUBLISHED',
             'user_id' => Auth::user()->id
         ];

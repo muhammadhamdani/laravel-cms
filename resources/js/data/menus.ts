@@ -37,26 +37,32 @@ export const NavigationList = [
         roles: ['Administrators'],
         children: [
             {
-                title: 'Posts',
+                title: 'Postingan',
                 roles: ['Administrators'],
                 icon: Newspaper,
                 children: [
                     {
-                        title: 'Category',
+                        title: 'Categories',
                         href: route('categories.index'),
-                        permission: 'view-permission',
+                        permission: 'view-category',
                         icon: ChevronRight,
                     },
                     {
-                        title: 'Posting',
+                        title: 'Posts',
                         href: route('posts.index'),
-                        permission: 'view-role',
+                        permission: 'view-post',
                         icon: ChevronRight,
                     },
                     {
                         title: 'Tags',
                         href: route('tags.index'),
-                        permission: 'view-user',
+                        permission: 'view-tag',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Pages',
+                        href: route('pages.index'),
+                        permission: 'view-page',
                         icon: ChevronRight,
                     },
                 ],

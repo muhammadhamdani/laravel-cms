@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('image')->nullable();
             $table->text('excerpt');
-            $table->text('content');
+            $table->text('description');
             $table->enum('status', ['DRAFT', 'PUBLISHED'])->default('DRAFT');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

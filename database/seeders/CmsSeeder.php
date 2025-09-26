@@ -49,7 +49,7 @@ class CmsSeeder extends Seeder
             [
                 'title' => 'Belajar Laravel 10',
                 'slug' => 'belajar-laravel-10',
-                'content' => 'Konten tutorial Laravel 10...',
+                'description' => 'Konten tutorial Laravel 10...',
                 'excerpt' => 'Konten tutorial Laravel 10...',
                 'status' => 'PUBLISHED',
                 'user_id' => 1,
@@ -57,7 +57,7 @@ class CmsSeeder extends Seeder
             [
                 'title' => 'React untuk Pemula',
                 'slug' => 'react-untuk-pemula',
-                'content' => 'Konten tutorial React...',
+                'description' => 'Konten tutorial React...',
                 'excerpt' => 'Konten tutorial React...',
                 'status' => 'DRAFT',
                 'user_id' => 1,

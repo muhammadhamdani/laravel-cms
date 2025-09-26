@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Core\RoleController;
 use App\Http\Controllers\Admin\Core\UserController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Cms\CategoryController;
+use App\Http\Controllers\Admin\Cms\PageController;
 use App\Http\Controllers\Admin\Core\PermissionController;
 
 /*
@@ -51,6 +52,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('tags/data', [TagController::class, 'getData'])->name('tags.data');
         Route::resource('tags', TagController::class);
+
+        Route::get('pages/data', [PageController::class, 'getData'])->name('pages.data');
+        Route::resource('pages', PageController::class);
     });
 });
 

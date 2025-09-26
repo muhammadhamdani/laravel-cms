@@ -211,3 +211,38 @@ Breadcrumbs::for(
     fn(BreadcrumbTrail $trail) =>
     $trail->parent('posts.index')->push('Post Data', route('posts.data'))
 );
+
+// Page Index
+Breadcrumbs::for(
+    'pages.index',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('dashboard')->push('Page', route('pages.index'))
+);
+
+// Page Create
+Breadcrumbs::for(
+    'pages.create',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('pages.index')->push('Create', route('pages.create'))
+);
+
+// Page Show
+Breadcrumbs::for(
+    'pages.show',
+    fn(BreadcrumbTrail $trail, $page) =>
+    $trail->parent('pages.index')->push($page->name, route('pages.show', $page))
+);
+
+// Page Edit
+Breadcrumbs::for(
+    'pages.edit',
+    fn(BreadcrumbTrail $trail, $page) =>
+    $trail->parent('pages.show', $page)->push('Edit', route('pages.edit', $page))
+);
+
+// Page Data
+Breadcrumbs::for(
+    'pages.data',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('pages.index')->push('Page Data', route('pages.data'))
+);

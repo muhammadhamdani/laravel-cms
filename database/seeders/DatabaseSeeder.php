@@ -55,6 +55,12 @@ class DatabaseSeeder extends Seeder
             ['name' => 'create-post'],
             ['name' => 'update-post'],
             ['name' => 'delete-post'],
+            ['name' => 'data-post'],
+            ['name' => 'view-page'],
+            ['name' => 'create-page'],
+            ['name' => 'update-page'],
+            ['name' => 'delete-page'],
+            ['name' => 'data-page'],
         ])->each(fn($permission) => Permission::create($permission)->assignRole('Administrators'));
 
         User::create([

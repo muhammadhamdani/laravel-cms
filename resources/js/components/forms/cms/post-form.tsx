@@ -19,12 +19,12 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
     const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
         title: artikel?.title || '',
-        description: artikel?.content || '',
+        description: artikel?.description || '',
         category_id: artikel?.categories?.map((c: any) => Number(c.id)) || [],
         tag_name: artikel?.tags?.map((t: any) => t.name) || [],
         status: artikel?.status.toString() || null,
-        image: null,
-        previewImage: artikel?.image || null,
+        image: artikel?.image || null,
+        previewImage: null, // blob url untuk preview upload baru
         _method: dataId ? 'PUT' : 'POST',
     });
 
@@ -59,8 +59,6 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
             data.tag_name.filter((t: string) => t !== tagName),
         );
     };
-
-    console.log(`${ziggy.url}/storage/${data.previewImage}`);
 
     return (
         <form onSubmit={handleSubmit} encType="multipart/form-data" className="flex flex-col space-y-4">
@@ -177,9 +175,12 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
                             <DropzoneEmptyState />
                             <DropzoneContent />
                         </Dropzone>
+                        {/* Jika ada preview dari upload baru */}
+                        {data.previewImage && <img src={data.previewImage} alt="Preview Feature Image" className="w-full rounded object-cover" />}
 
-                        {data.previewImage && (
-                            <img src={`${ziggy.url}/storage/${data.previewImage}`} alt="Feature Image" className="w-full rounded object-cover" />
+                        {/* Jika tidak ada preview baru tapi ada image lama */}
+                        {!data.previewImage && data.image && (
+                            <img src={`${ziggy.url}/storage/${data.image}`} alt="Feature Image" className="w-full rounded object-cover" />
                         )}
                     </div>
                 </div>
