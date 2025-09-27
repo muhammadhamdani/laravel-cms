@@ -22,7 +22,7 @@ export const PermissionForm = ({ dataId }: { dataId?: number }) => {
         e.preventDefault();
 
         if (dataId) {
-            put(route('permissions.update', dataId), {
+            put(route('core.permissions.update', dataId), {
                 onSuccess: () => {
                     toast.success('Permission berhasil diubah');
                     reset(); // reset form
@@ -32,7 +32,7 @@ export const PermissionForm = ({ dataId }: { dataId?: number }) => {
                 },
             });
         } else {
-            post(route('permissions.store'), {
+            post(route('core.permissions.store'), {
                 onSuccess: () => {
                     toast.success('Permission berhasil ditambahkan');
                     reset(); // reset form

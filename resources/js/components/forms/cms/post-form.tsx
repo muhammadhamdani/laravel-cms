@@ -9,6 +9,7 @@ import { Dropzone, DropzoneContent, DropzoneEmptyState } from '@/components/ui/s
 import { useForm, usePage } from '@inertiajs/react';
 import { SaveIcon } from 'lucide-react';
 import { FormEvent, useState } from 'react';
+import { toast } from 'sonner';
 
 export const PostForm = ({ dataId }: { dataId?: number }) => {
     const { post: artikel, categories, ziggy } = usePage<any>().props;
@@ -23,8 +24,8 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
         category_id: artikel?.categories?.map((c: any) => Number(c.id)) || [],
         tag_name: artikel?.tags?.map((t: any) => t.name) || [],
         status: artikel?.status.toString() || null,
-        image: artikel?.image || null,
-        previewImage: null, // blob url untuk preview upload baru
+        image: null,
+        previewImage: artikel?.image ? `/storage/${artikel.image}` : null,
         _method: dataId ? 'PUT' : 'POST',
     });
 
@@ -37,19 +38,23 @@ export const PostForm = ({ dataId }: { dataId?: number }) => {
         e.preventDefault();
 
         if (dataId) {
-            post(route('posts.update', dataId), {
+            post(route('cms.posts.update', dataId), {
                 forceFormData: true,
             });
         } else {
-            post(route('posts.store'), {
+            post(route('cms.posts.store'), {
                 forceFormData: true,
             });
         }
     };
 
     const addTag = (tagName: string) => {
-        if (!data.tag_name.includes(tagName)) {
-            setData('tag_name', [...data.tag_name, tagName]);
+        if (tagName != '') {
+            if (!data.tag_name.includes(tagName)) {
+                setData('tag_name', [...data.tag_name, tagName]);
+            }
+        } else {
+            toast.error('Tag name tidak boleh kosong');
         }
     };
 

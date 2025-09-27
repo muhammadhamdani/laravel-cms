@@ -22,9 +22,9 @@ export const TagForm = ({ dataId }: { dataId?: number }) => {
         e.preventDefault();
 
         if (dataId) {
-            put(route('tags.update', dataId), {});
+            put(route('cms.tags.update', dataId), {});
         } else {
-            post(route('tags.store'), {});
+            post(route('cms.tags.store'), {});
         }
     };
 

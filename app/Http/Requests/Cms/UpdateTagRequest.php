@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Crm;
+namespace App\Http\Requests\Cms;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class UpdateTagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,6 @@ class StoreCategoryRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
-            'parent_id' => ['required'],
         ];
     }
 }

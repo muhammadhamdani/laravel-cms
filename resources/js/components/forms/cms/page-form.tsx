@@ -15,8 +15,8 @@ export const PageForm = ({ dataId }: { dataId?: number }) => {
         name: page?.name || '',
         description: page?.description || '',
         status: page?.status || null,
-        image: page?.image || null,
-        previewImage: null,
+        image: null,
+        previewImage: page?.image ? `/storage/${page.image}` : null,
         _method: dataId ? 'PUT' : 'POST',
     });
 
@@ -31,11 +31,11 @@ export const PageForm = ({ dataId }: { dataId?: number }) => {
         e.preventDefault();
 
         if (dataId) {
-            post(route('pages.update', dataId), {
+            post(route('cms.pages.update', dataId), {
                 forceFormData: true,
             });
         } else {
-            post(route('pages.store'), {
+            post(route('cms.pages.store'), {
                 forceFormData: true,
             });
         }
@@ -89,13 +89,7 @@ export const PageForm = ({ dataId }: { dataId?: number }) => {
                             <DropzoneContent />
                         </Dropzone>
 
-                        {/* Jika ada preview dari upload baru */}
-                        {data.previewImage && <img src={data.previewImage} alt="Preview Feature Image" className="w-full rounded object-cover" />}
-
-                        {/* Jika tidak ada preview baru tapi ada image lama */}
-                        {!data.previewImage && data.image && (
-                            <img src={`${ziggy.url}/storage/${data.image}`} alt="Feature Image" className="w-full rounded object-cover" />
-                        )}
+                        {data.previewImage && <img src={data.previewImage} alt="Preview" className="w-full rounded" />}
                     </div>
                 </div>
             </div>

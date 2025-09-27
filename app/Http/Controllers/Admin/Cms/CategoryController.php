@@ -8,9 +8,8 @@ use Illuminate\Support\Str;
 use App\Models\Cms\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Cache\Store;
-use App\Http\Requests\Crm\StoreCategoryRequest;
-use App\Http\Requests\Crm\UpdateCategoryRequest;
+use App\Http\Requests\Cms\StoreCategoryRequest;
+use App\Http\Requests\Cms\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -71,7 +70,7 @@ class CategoryController extends Controller
         }
 
         if ($request->saveBack) {
-            return redirect()->route('categories.index')->with('success', 'Category created successfully');
+            return redirect()->route('cms.categories.index')->with('success', 'Category created successfully');
         }
 
         return redirect()->back()->with('success', 'Category created successfully');
@@ -143,7 +142,7 @@ class CategoryController extends Controller
         }
 
         if ($request->saveBack) {
-            return redirect()->route('categories.index')->with('success', 'Category updated successfully');
+            return redirect()->route('cms.categories.index')->with('success', 'Category updated successfully');
         }
 
         return redirect()->back()->with('success', 'Category updated successfully');
@@ -158,7 +157,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully');
+        return redirect()->route('cms.categories.index')->with('success', 'Category deleted successfully');
     }
 
     public function getData(Request $request)

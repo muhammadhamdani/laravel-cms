@@ -8,8 +8,8 @@ use App\Traits\LogActivity;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Crm\StorePageRequest;
-use App\Http\Requests\Crm\UpdatePageRequest;
+use App\Http\Requests\Cms\StorePageRequest;
+use App\Http\Requests\Cms\UpdatePageRequest;
 use App\Traits\UploadFiles;
 
 class PageController extends Controller
@@ -72,7 +72,7 @@ class PageController extends Controller
             ]);
         }
 
-        return redirect()->route('pages.index')->with('success', 'Page created successfully');
+        return redirect()->route('cms.pages.index')->with('success', 'Page created successfully');
     }
 
     /**
@@ -145,7 +145,7 @@ class PageController extends Controller
             ]);
         }
 
-        return redirect()->route('pages.index')->with('success', 'Page updated successfully');
+        return redirect()->route('cms.pages.index')->with('success', 'Page updated successfully');
     }
 
     /**
@@ -161,7 +161,7 @@ class PageController extends Controller
 
         $page->delete();
 
-        return redirect()->route('pages.index')->with('success', 'Page deleted successfully');
+        return redirect()->route('cms.pages.index')->with('success', 'Page deleted successfully');
     }
 
     public function getData(Request $request)

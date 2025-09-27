@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Crm;
+namespace App\Http\Requests\Cms;
 
 use Illuminate\Foundation\Http\FormRequest;
 

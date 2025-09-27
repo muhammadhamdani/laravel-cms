@@ -29,7 +29,7 @@ Route::redirect('/', 'dashboard')->name('home');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::prefix('core')->group(function () {
+    Route::prefix('core')->as('core.')->group(function () {
         Route::get('permissions/data', [PermissionController::class, 'getData'])->name('permissions.data');
         Route::resource('permissions', PermissionController::class);
 
@@ -43,7 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('users', UserController::class);
     });
 
-    Route::prefix('cms')->group(function () {
+    Route::prefix('cms')->as('cms.')->group(function () {
         Route::get('categories/data', [CategoryController::class, 'getData'])->name('categories.data');
         Route::resource('categories', CategoryController::class);
 
@@ -55,6 +55,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::get('pages/data', [PageController::class, 'getData'])->name('pages.data');
         Route::resource('pages', PageController::class);
+
+        Route::get('sliders/data', [TagController::class, 'getData'])->name('sliders.data');
+        Route::resource('sliders', TagController::class);
+    });
+
+    Route::prefix('fundraising')->as('fundraising.')->group(function () {
+        Route::get('categories/data', [PageController::class, 'getData'])->name('categories.data');
+        Route::resource('categories', PageController::class);
     });
 });
 

@@ -8,8 +8,8 @@ use App\Traits\LogActivity;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Crm\StoreTagRequest;
-use App\Http\Requests\Crm\UpdateTagRequest;
+use App\Http\Requests\Cms\StoreTagRequest;
+use App\Http\Requests\Cms\UpdateTagRequest;
 
 class TagController extends Controller
 {
@@ -64,7 +64,7 @@ class TagController extends Controller
             ]);
         }
 
-        return redirect()->route('tags.index')->with('success', 'Tag created successfully');
+        return redirect()->route('cms.tags.index')->with('success', 'Tag created successfully');
     }
 
     /**
@@ -128,7 +128,7 @@ class TagController extends Controller
             ]);
         }
 
-        return redirect()->route('tags.index')->with('success', 'Tag updated successfully');
+        return redirect()->route('cms.tags.index')->with('success', 'Tag updated successfully');
     }
 
     /**
@@ -140,7 +140,7 @@ class TagController extends Controller
 
         $tag->delete();
 
-        return redirect()->route('tags.index')->with('success', 'Tag deleted successfully');
+        return redirect()->route('cms.tags.index')->with('success', 'Tag deleted successfully');
     }
 
     public function getData(Request $request)

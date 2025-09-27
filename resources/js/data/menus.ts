@@ -1,4 +1,4 @@
-import { ChevronRight, CpuIcon, Newspaper } from 'lucide-react';
+import { ChartArea, ChevronRight, CpuIcon, DatabaseIcon, Newspaper, ShoppingCartIcon } from 'lucide-react';
 
 export const NavigationList = [
     {
@@ -12,19 +12,19 @@ export const NavigationList = [
                 children: [
                     {
                         title: 'Permissions',
-                        href: route('permissions.index'),
+                        href: route('core.permissions.index'),
                         permission: 'view-permission',
                         icon: ChevronRight,
                     },
                     {
                         title: 'Roles',
-                        href: route('roles.index'),
+                        href: route('core.roles.index'),
                         permission: 'view-role',
                         icon: ChevronRight,
                     },
                     {
                         title: 'Users',
-                        href: route('users.index'),
+                        href: route('core.users.index'),
                         permission: 'view-user',
                         icon: ChevronRight,
                     },
@@ -43,26 +43,120 @@ export const NavigationList = [
                 children: [
                     {
                         title: 'Categories',
-                        href: route('categories.index'),
+                        href: route('cms.categories.index'),
                         permission: 'view-category',
                         icon: ChevronRight,
                     },
                     {
                         title: 'Posts',
-                        href: route('posts.index'),
+                        href: route('cms.posts.index'),
                         permission: 'view-post',
                         icon: ChevronRight,
                     },
                     {
                         title: 'Tags',
-                        href: route('tags.index'),
+                        href: route('cms.tags.index'),
                         permission: 'view-tag',
                         icon: ChevronRight,
                     },
                     {
                         title: 'Pages',
-                        href: route('pages.index'),
+                        href: route('cms.pages.index'),
                         permission: 'view-page',
+                        icon: ChevronRight,
+                    },
+                ],
+            },
+            {
+                title: 'Master Data',
+                roles: ['Administrators'],
+                icon: DatabaseIcon,
+                children: [
+                    {
+                        title: 'Sliders',
+                        href: route('cms.categories.index'),
+                        permission: 'view-category',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Faqs',
+                        href: route('cms.categories.index'),
+                        permission: 'view-category',
+                        icon: ChevronRight,
+                    },
+                ],
+            },
+            {
+                title: 'Analytics',
+                roles: ['Administrators'],
+                icon: ChartArea,
+                children: [
+                    {
+                        title: 'Visitors',
+                        href: route('cms.categories.index'),
+                        permission: 'view-category',
+                        icon: ChevronRight,
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'Fundraising',
+        roles: ['Administrators'],
+        children: [
+            {
+                title: 'Master Data',
+                roles: ['Administrators'],
+                icon: DatabaseIcon,
+                children: [
+                    {
+                        title: 'Categories',
+                        href: route('cms.categories.index'),
+                        permission: 'view-category',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Campaigns',
+                        href: route('cms.posts.index'),
+                        permission: 'view-post',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Faqs',
+                        href: route('cms.tags.index'),
+                        permission: 'view-tag',
+                        icon: ChevronRight,
+                    },
+                    {
+                        title: 'Bank Accounts',
+                        href: route('cms.pages.index'),
+                        permission: 'view-page',
+                        icon: ChevronRight,
+                    },
+                ],
+            },
+            {
+                title: 'Transactions',
+                roles: ['Administrators'],
+                icon: ShoppingCartIcon,
+                children: [
+                    {
+                        title: 'Donations',
+                        href: route('cms.categories.index'),
+                        permission: 'view-category',
+                        icon: ChevronRight,
+                    },
+                ],
+            },
+            {
+                title: 'Analytics',
+                roles: ['Administrators'],
+                icon: ChartArea,
+                children: [
+                    {
+                        href: route('cms.categories.index'),
+                        permission: 'view-category',
                         icon: ChevronRight,
                     },
                 ],

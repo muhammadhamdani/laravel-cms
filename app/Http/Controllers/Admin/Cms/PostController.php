@@ -11,8 +11,8 @@ use App\Models\Cms\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Crm\StorePostRequest;
-use App\Http\Requests\Crm\UpdatePostRequest;
+use App\Http\Requests\Cms\StorePostRequest;
+use App\Http\Requests\Cms\UpdatePostRequest;
 use App\Traits\UploadFiles;
 
 class PostController extends Controller
@@ -87,7 +87,7 @@ class PostController extends Controller
             ]);
         }
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully');
+        return redirect()->route('cms.posts.index')->with('success', 'Post created successfully');
     }
 
     /**
@@ -171,7 +171,7 @@ class PostController extends Controller
             ]);
         }
 
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully');
+        return redirect()->route('cms.posts.index')->with('success', 'Post updated successfully');
     }
 
     /**
@@ -187,7 +187,7 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
+        return redirect()->route('cms.posts.index')->with('success', 'Post deleted successfully');
     }
 
     public function getData(Request $request)

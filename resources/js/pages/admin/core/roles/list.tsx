@@ -29,7 +29,7 @@ export default function ListPage() {
 
         setIsLoading(true);
         try {
-            const response = await axios.get(route('roles.data'), {
+            const response = await axios.get(route('core.roles.data'), {
                 params: {
                     page: pagination.page,
                     perPage: pagination.perPage,

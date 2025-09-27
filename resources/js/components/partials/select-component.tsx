@@ -17,93 +17,6 @@ import { Label } from '../ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 
-// export const SelectContext = createContext({});
-
-// export const UseSelect = () => useContext(SelectContext);
-
-// export const SelectProvider = ({
-//     multiple = false,
-//     dataSelected,
-//     handleOnChange,
-//     children,
-// }: {
-//     children: ReactNode;
-//     multiple?: boolean;
-//     handleOnChange?: (value: any) => void;
-//     dataSelected?: string | string[];
-// }) => {
-//     const [selected, setSelected] = useState(dataSelected !== undefined ? dataSelected : multiple ? [] : '');
-
-//     useEffect(() => {
-//         handleOnChange?.(selected);
-//     }, [selected]);
-
-//     const isSelected = (value: any) => {
-//         return multiple ? selected.includes(value) : selected === value;
-//     };
-
-//     const contextValue = { selected, setSelected, isSelected, multiple };
-
-//     return <SelectContext.Provider value={contextValue}>{children}</SelectContext.Provider>;
-// };
-
-// export function SelectComponent({ label, data, placeholder = 'Select option...' }: { label?: string; data: any[]; placeholder?: string }) {
-//     const [open, setOpen] = useState(false);
-//     const { selected, setSelected, isSelected, multiple }: any = UseSelect();
-
-//     const toggleValue = (value: any) => {
-//         if (multiple) {
-//             const current = selected;
-//             const updated = current.includes(value) ? current.filter((v: any) => v !== value) : [...current, value];
-//             setSelected(updated);
-//         } else {
-//             setSelected(value);
-//             setOpen(false);
-//         }
-//     };
-
-//     const displayLabel = multiple
-//         ? selected.length
-//             ? data
-//                   .filter((d: any) => selected.includes(d.value))
-//                   .map((d: any) => d.label)
-//                   .join(', ')
-//             : placeholder
-//         : selected
-//           ? (data.find((d) => d.value === selected)?.label ?? placeholder)
-//           : placeholder;
-
-//     return (
-//         <Popover open={open} onOpenChange={setOpen}>
-//             <div className="w-ful flex flex-col space-y-3">
-//                 {label && <Label>{label}</Label>}
-//                 <PopoverTrigger asChild>
-//                     <Button variant="outline" role="combobox" aria-expanded={open} className="w-full justify-between">
-//                         {displayLabel}
-//                         <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50" />
-//                     </Button>
-//                 </PopoverTrigger>
-//             </div>
-//             <PopoverContent className="w-full p-0">
-//                 <Command>
-//                     <CommandInput placeholder="Search..." className="h-9" />
-//                     <CommandList>
-//                         <CommandEmpty>No option found.</CommandEmpty>
-//                         <CommandGroup>
-//                             {data.map((item: any) => (
-//                                 <CommandItem key={item.value} onSelect={() => toggleValue(item.value)} className="cursor-pointer">
-//                                     {item.label}
-//                                     <Check className={classNames('ml-auto h-4 w-4', isSelected(item.value) ? 'opacity-100' : 'opacity-0')} />
-//                                 </CommandItem>
-//                             ))}
-//                         </CommandGroup>
-//                     </CommandList>
-//                 </Command>
-//             </PopoverContent>
-//         </Popover>
-//     );
-// }
-
 export const SelectWithSearchComponent = ({
     data = [],
     dataSelected,
@@ -144,7 +57,7 @@ export const SelectWithSearchComponent = ({
     const fetchData = useCallback(async () => {
         setLoading(true);
         try {
-            const response = await axios.get(route('permissions.data'));
+            const response = await axios.get(route('core.permissions.data'));
             const results = response.data;
             const formatted = results.map((item: any) => ({
                 label: item.name,

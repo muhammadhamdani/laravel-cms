@@ -24,9 +24,9 @@ export const CategoryForm = ({ dataId }: { dataId?: number }) => {
         e.preventDefault();
 
         if (dataId) {
-            put(route('categories.update', dataId), {});
+            put(route('cms.categories.update', dataId), {});
         } else {
-            post(route('categories.store'), {});
+            post(route('cms.categories.store'), {});
         }
     };
 

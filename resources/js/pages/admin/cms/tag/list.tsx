@@ -29,7 +29,7 @@ export default function ListPage() {
 
         setIsLoading(true);
         try {
-            const response = await axios.get(route('tags.data'), {
+            const response = await axios.get(route('cms.tags.data'), {
                 params: {
                     page: pagination.page,
                     perPage: pagination.perPage,
