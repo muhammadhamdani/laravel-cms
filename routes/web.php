@@ -5,12 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Opcodes\LogViewer\Facades\LogViewer;
 use App\Http\Controllers\Admin\Cms\TagController;
+use App\Http\Controllers\Admin\Cms\PageController;
 use App\Http\Controllers\Admin\Cms\PostController;
 use App\Http\Controllers\Admin\Core\RoleController;
 use App\Http\Controllers\Admin\Core\UserController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Cms\SliderController;
+use App\Http\Controllers\Admin\Cms\AnalyticController;
 use App\Http\Controllers\Admin\Cms\CategoryController;
-use App\Http\Controllers\Admin\Cms\PageController;
 use App\Http\Controllers\Admin\Core\PermissionController;
 
 /*
@@ -56,8 +58,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('pages/data', [PageController::class, 'getData'])->name('pages.data');
         Route::resource('pages', PageController::class);
 
-        Route::get('sliders/data', [TagController::class, 'getData'])->name('sliders.data');
-        Route::resource('sliders', TagController::class);
+        Route::get('sliders/data', [SliderController::class, 'getData'])->name('sliders.data');
+        Route::resource('sliders', SliderController::class);
+
+        Route::get('analytics/data', [AnalyticController::class, 'getData'])->name('analytics.data');
+        Route::get('analytics', [AnalyticController::class, 'index'])->name('analytics.index');
     });
 
     Route::prefix('fundraising')->as('fundraising.')->group(function () {

@@ -8,7 +8,7 @@ import { SaveIcon } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 
 export const PageForm = ({ dataId }: { dataId?: number }) => {
-    const { page, categories, ziggy } = usePage<any>().props;
+    const { page } = usePage<any>().props;
 
     const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',

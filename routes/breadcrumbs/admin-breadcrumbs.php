@@ -3,6 +3,55 @@
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
+// Slider Index
+Breadcrumbs::for(
+    'cms.sliders.index',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('dashboard')->push('Slider', route('cms.sliders.index'))
+);
+
+// Slider Create
+Breadcrumbs::for(
+    'cms.sliders.create',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('cms.sliders.index')->push('Create', route('cms.sliders.create'))
+);
+
+// Slider Show
+Breadcrumbs::for(
+    'cms.sliders.show',
+    fn(BreadcrumbTrail $trail, $slider) =>
+    $trail->parent('cms.sliders.index')->push($slider->name, route('cms.sliders.show', $slider))
+);
+
+// Slider Edit
+Breadcrumbs::for(
+    'cms.sliders.edit',
+    fn(BreadcrumbTrail $trail, $slider) =>
+    $trail->parent('cms.sliders.show', $slider)->push('Edit', route('cms.sliders.edit', $slider))
+);
+
+// Slider Data
+Breadcrumbs::for(
+    'cms.sliders.data',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('cms.sliders.index')->push('Slider Data', route('cms.sliders.data'))
+);
+
+// Slider Data
+Breadcrumbs::for(
+    'cms.analytics.data',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('cms.analytics.index')->push('Analytics Data', route('cms.analytics.data'))
+);
+
+// Slider Index
+Breadcrumbs::for(
+    'cms.analytics.index',
+    fn(BreadcrumbTrail $trail) =>
+    $trail->parent('dashboard')->push('Analytics', route('cms.analytics.index'))
+);
+
 // Page Index
 Breadcrumbs::for(
     'cms.pages.index',

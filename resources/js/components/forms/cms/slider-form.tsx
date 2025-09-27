@@ -1,16 +1,19 @@
 import { ButtonComponent } from '@/components/partials/button-component';
-import InputTextComponent, { InputTextAreaComponent } from '@/components/partials/input-components';
+import InputTextComponent, { InputFileComponent } from '@/components/partials/input-components';
 import { useForm, usePage } from '@inertiajs/react';
 import { SaveIcon } from 'lucide-react';
 import { FormEvent } from 'react';
 
-export const TagForm = ({ dataId }: { dataId?: number }) => {
-    const { tag } = usePage<any>().props;
+export const SliderForm = ({ dataId }: { dataId?: number }) => {
+    const { slider } = usePage<any>().props;
 
     const { data, setData, post, put, processing, errors, reset, transform }: any = useForm({
         saveBack: 'false',
-        name: tag?.name || '',
-        description: tag?.description || '',
+        name: slider?.name || '',
+        link: slider?.link || '',
+        image: null,
+        previewImage: slider?.image ? `/storage/${slider.image}` : null,
+        _method: dataId ? 'PUT' : 'POST',
     });
 
     // transformData
@@ -22,9 +25,13 @@ export const TagForm = ({ dataId }: { dataId?: number }) => {
         e.preventDefault();
 
         if (dataId) {
-            put(route('cms.tags.update', dataId), {});
+            post(route('cms.sliders.update', dataId), {
+                forceFormData: true,
+            });
         } else {
-            post(route('cms.tags.store'), {});
+            post(route('cms.sliders.store'), {
+                forceFormData: true,
+            });
         }
     };
 
@@ -40,13 +47,21 @@ export const TagForm = ({ dataId }: { dataId?: number }) => {
                     errors={errors.name && errors.name}
                     helperText={errors.name && errors.name}
                 />
-                <InputTextAreaComponent
-                    label="Description"
-                    name="description"
-                    errors={errors.description && errors.description}
-                    helperText={errors.description && errors.description}
-                    value={data.description}
-                    handleOnChange={(value: string) => setData('description', value)}
+                <InputTextComponent
+                    type="text"
+                    label="Link"
+                    name="link"
+                    value={data.link}
+                    handleOnChange={(value: string) => setData('link', value)}
+                    errors={errors.link && errors.link}
+                    helperText={errors.link && errors.link}
+                />
+                <InputFileComponent
+                    label="Featured Image"
+                    name="image"
+                    handleOnChange={(value: string) => setData('image', value)}
+                    errors={errors.image && errors.image}
+                    helperText={errors.image && errors.image}
                 />
             </div>
             <div className="flex justify-end space-x-4">

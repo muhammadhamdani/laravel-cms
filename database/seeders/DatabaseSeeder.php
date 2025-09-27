@@ -61,6 +61,12 @@ class DatabaseSeeder extends Seeder
             ['name' => 'update-page'],
             ['name' => 'delete-page'],
             ['name' => 'data-page'],
+            ['name' => 'view-slider'],
+            ['name' => 'create-slider'],
+            ['name' => 'update-slider'],
+            ['name' => 'delete-slider'],
+            ['name' => 'data-slider'],
+            ['name' => 'view-analytics'],
         ])->each(fn($permission) => Permission::create($permission)->assignRole('Administrators'));
 
         User::create([

@@ -74,7 +74,7 @@ export const NavigationList = [
                 children: [
                     {
                         title: 'Sliders',
-                        href: route('cms.categories.index'),
+                        href: route('cms.sliders.index'),
                         permission: 'view-category',
                         icon: ChevronRight,
                     },
@@ -92,9 +92,9 @@ export const NavigationList = [
                 icon: ChartArea,
                 children: [
                     {
-                        title: 'Visitors',
-                        href: route('cms.categories.index'),
-                        permission: 'view-category',
+                        title: 'Reports Analytics',
+                        href: route('cms.analytics.index'),
+                        permission: 'view-analytic',
                         icon: ChevronRight,
                     },
                 ],
