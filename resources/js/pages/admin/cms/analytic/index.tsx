@@ -124,4 +124,13 @@ export default function ListPage() {
     );
 }
 
+type VisitorItem = {
+    date: string;
+    visitors: number;
+    pageViews: number;
+};
 
+type PopularPage = {
+    path: string;
+    pageViews: number;
+};
