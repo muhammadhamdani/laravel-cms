@@ -46,7 +46,7 @@
         @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         @inertiaHead
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased scrollbar-hide overflow-auto">
         @inertia
 
         @RegisterServiceWorkerScript <!-- This registers the service worker -->

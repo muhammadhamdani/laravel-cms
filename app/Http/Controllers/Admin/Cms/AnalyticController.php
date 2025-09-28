@@ -12,7 +12,9 @@ class AnalyticController extends Controller
 {
     public function index()
     {
-        return Inertia::render('admin/cms/analytic/index');
+        $data = [];
+
+        return Inertia::render('admin/cms/analytic/index', $data);
     }
 
     /**

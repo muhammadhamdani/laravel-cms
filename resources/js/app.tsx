@@ -13,7 +13,14 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+            <div className="h-screen w-screen overflow-hidden font-sans antialiased">
+                {/* Scrollable container */}
+                <div className="scrollbar-hide h-full w-full overflow-auto">
+                    <App {...props} />
+                </div>
+            </div>,
+        );
     },
     progress: {
         color: '#4B5563',
