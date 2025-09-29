@@ -37,7 +37,7 @@ export default function DetailBlogPage() {
                 {/* Post Content */}
                 <div
                     dangerouslySetInnerHTML={{ __html: post.description }}
-                    className="prose max-w-none text-base leading-relaxed text-gray-700 md:text-lg [&>p]:mb-4 [&>p]:text-base [&>p]:leading-relaxed [&>p]:md:text-lg"
+                    className="prose max-w-none text-sm leading-relaxed text-gray-700 md:text-base [&>p]:mb-4 [&>p]:text-sm [&>p]:leading-relaxed [&>p]:md:text-base"
                 />
             </div>
         </HomeLayout>
@@ -52,4 +52,9 @@ type Post = {
     created_at: string;
     image?: string;
     categories: Category[];
+};
+
+type Category = {
+    id: number;
+    name: string;
 };

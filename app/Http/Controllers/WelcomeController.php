@@ -29,6 +29,21 @@ class WelcomeController extends Controller
         ]);
     }
 
+    public function aboutUs()
+    {
+        return Inertia::render('home/about/index');
+    }
+
+    public function layanan()
+    {
+        return Inertia::render('home/layanan/index');
+    }
+
+    public function publication()
+    {
+        return Inertia::render('home/publication/index');
+    }
+
     public function blogData(Request $request)
     {
         $perPage = $request->input('perPage', 6); // default 6 per page
