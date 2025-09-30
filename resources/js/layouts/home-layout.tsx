@@ -252,7 +252,6 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
     const { name, quote } = usePage<SharedData>().props;
 
     const menus = [
-        { name: 'Home', href: '/home' },
         { name: 'Tentang', href: '/about' },
         { name: 'Layanan', href: '/services' },
         { name: 'Program', href: '/programs' },
