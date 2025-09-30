@@ -29,12 +29,6 @@ use App\Http\Controllers\WelcomeController;
 
 Route::redirect('/', 'dashboard')->name('home');
 
-Route::get('blog/data', [WelcomeController::class, 'blogData'])->name('blog.data');
-Route::get('blog/{post:slug}', [WelcomeController::class, 'blogDetail'])->name('blog.details');
-Route::get('blog', [WelcomeController::class, 'blog'])->name('blog');
-
-Route::get('about', [WelcomeController::class, 'aboutUs'])->name('about');
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
