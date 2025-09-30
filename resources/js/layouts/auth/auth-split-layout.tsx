@@ -1,8 +1,10 @@
 import AppLogoIcon from '@/components/app-logo-icon';
 import { Particles } from '@/components/ui/shadcn-io/particles';
+import { Toaster } from '@/components/ui/sonner';
 import { type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { type PropsWithChildren } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
+import { toast } from 'sonner';
 
 interface AuthLayoutProps {
     title?: string;
@@ -10,7 +12,17 @@ interface AuthLayoutProps {
 }
 
 export default function AuthSplitLayout({ children, title, description }: PropsWithChildren<AuthLayoutProps>) {
-    const { name, quote } = usePage<SharedData>().props;
+    const { flash, breadcrumbs, name, quote } = usePage<SharedData>().props;
+
+    useEffect(() => {
+        if (flash?.success) {
+            toast.success(flash?.success);
+        }
+
+        if (flash?.error) {
+            toast.error(flash?.error);
+        }
+    }, [flash?.success, flash?.error]);
 
     return (
         <div className="relative grid h-dvh flex-col items-center justify-center px-8 sm:px-0 lg:max-w-none lg:grid-cols-2 lg:px-0">
@@ -43,6 +55,7 @@ export default function AuthSplitLayout({ children, title, description }: PropsW
                     </div>
                     {children}
                 </div>
+                <Toaster position="top-right" richColors />
             </div>
         </div>
     );
