@@ -75,8 +75,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make(hexdec(uniqid())),
         ])->assignRole('Administrators');
 
-        User::factory(100)->create()->each(fn($user) => $user->assignRole('Users'));
-
         $this->call([
             CmsSeeder::class
         ]);

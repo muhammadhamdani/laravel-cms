@@ -26,18 +26,20 @@ class SocialiteController extends Controller
         $name = $response->getNickname() ?? $response->getName();
 
         if (!$user) {
-            $user = User::create([
-                'name' => $name,
-                'email' => $response->getEmail(),
-                'password' => Hash::make(Str::random(8)),
-            ])->assignRole('Users');
+            return redirect()->route('login')->with('error', 'User not found!');
 
-            $user->socials()->create([
-                'provider_id' => $response->getId(),
-                'provider' => $provider,
-                'provider_token' => $response->token,
-                'provider_refresh_token' => $response->refreshToken
-            ]);
+            // $user = User::create([
+            //     'name' => $name,
+            //     'email' => $response->getEmail(),
+            //     'password' => Hash::make(Str::random(8)),
+            // ])->assignRole('Users');
+
+            // $user->socials()->create([
+            //     'provider_id' => $response->getId(),
+            //     'provider' => $provider,
+            //     'provider_token' => $response->token,
+            //     'provider_refresh_token' => $response->refreshToken
+            // ]);
         }
 
         $socials = Social::where('user_id', $user->id)
