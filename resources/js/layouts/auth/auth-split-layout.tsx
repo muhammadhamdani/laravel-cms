@@ -19,7 +19,7 @@ export default function AuthSplitLayout({ children, title, description }: PropsW
                     <Particles className="absolute inset-0" quantity={1000} ease={100} staticity={50} color="#ffffff" size={0.8} />
                 </div>
 
-                <Link href={route('blog')} className="relative z-20 flex items-center text-lg font-medium">
+                <Link href={route('dashboard')} className="relative z-20 flex items-center text-lg font-medium">
                     <AppLogoIcon className="mr-2 size-8 fill-current text-white" />
                     {name}
                 </Link>
@@ -34,7 +34,7 @@ export default function AuthSplitLayout({ children, title, description }: PropsW
             </div>
             <div className="w-full lg:p-8">
                 <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-                    <Link href={route('blog')} className="relative z-20 flex items-center justify-center lg:hidden">
+                    <Link href={route('dashboard')} className="relative z-20 flex items-center justify-center lg:hidden">
                         <AppLogoIcon className="h-10 fill-current text-black sm:h-12" />
                     </Link>
                     <div className="flex flex-col items-start gap-2 text-left sm:items-center sm:text-center">
