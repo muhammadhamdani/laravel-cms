@@ -1,4 +1,4 @@
-import { ChartArea, ChevronRight, CpuIcon, DatabaseIcon, Newspaper, ShoppingCartIcon } from 'lucide-react';
+import { ChartArea, ChevronRight, CpuIcon, DatabaseIcon, Newspaper } from 'lucide-react';
 
 export const NavigationList = [
     {
@@ -78,12 +78,6 @@ export const NavigationList = [
                         permission: 'view-category',
                         icon: ChevronRight,
                     },
-                    {
-                        title: 'Faqs',
-                        href: route('cms.categories.index'),
-                        permission: 'view-category',
-                        icon: ChevronRight,
-                    },
                 ],
             },
             {
@@ -95,68 +89,6 @@ export const NavigationList = [
                         title: 'Reports Analytics',
                         href: route('cms.analytics.index'),
                         permission: 'view-analytic',
-                        icon: ChevronRight,
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        title: 'Fundraising',
-        roles: ['Administrators'],
-        children: [
-            {
-                title: 'Master Data',
-                roles: ['Administrators'],
-                icon: DatabaseIcon,
-                children: [
-                    {
-                        title: 'Categories',
-                        href: route('cms.categories.index'),
-                        permission: 'view-category',
-                        icon: ChevronRight,
-                    },
-                    {
-                        title: 'Campaigns',
-                        href: route('cms.posts.index'),
-                        permission: 'view-post',
-                        icon: ChevronRight,
-                    },
-                    {
-                        title: 'Faqs',
-                        href: route('cms.tags.index'),
-                        permission: 'view-tag',
-                        icon: ChevronRight,
-                    },
-                    {
-                        title: 'Bank Accounts',
-                        href: route('cms.pages.index'),
-                        permission: 'view-page',
-                        icon: ChevronRight,
-                    },
-                ],
-            },
-            {
-                title: 'Transactions',
-                roles: ['Administrators'],
-                icon: ShoppingCartIcon,
-                children: [
-                    {
-                        title: 'Donations',
-                        href: route('cms.categories.index'),
-                        permission: 'view-category',
-                        icon: ChevronRight,
-                    },
-                ],
-            },
-            {
-                title: 'Analytics',
-                roles: ['Administrators'],
-                icon: ChartArea,
-                children: [
-                    {
-                        href: route('cms.categories.index'),
-                        permission: 'view-category',
                         icon: ChevronRight,
                     },
                 ],
